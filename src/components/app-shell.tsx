@@ -13,7 +13,7 @@ function NavBar() {
         href="/"
         className="text-sm font-semibold text-neutral-700 hover:text-neutral-900 transition-colors"
       >
-        XM3
+        AI Ecosystem
       </a>
       <div className="flex items-center gap-4">
         <a

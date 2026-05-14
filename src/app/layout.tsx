@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Alliance — 100+ AI Tools Directory",
-  description: "Discover 100+ best AI tools — chatbots, image generation, video, code assistants, music, voice, and more.",
+  title: "AI Ecosystem — 100+ AI Tools Directory",
+  description: "Discover 100+ best AI tools — chatbots, image generation, video, code assistants, music, voice, and more on AI Ecosystem.",
 };
 
 export default function RootLayout({

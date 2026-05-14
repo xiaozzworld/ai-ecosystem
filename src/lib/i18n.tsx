@@ -7,8 +7,8 @@ export type Lang = "en" | "zh";
 type Translations = Record<string, Record<Lang, string>>;
 
 const t: Translations = {
-  "nav.title": { en: "AI Alliance", zh: "AI 联盟" },
-  "page.title": { en: "AI Alliance", zh: "AI 联盟" },
+  "nav.title": { en: "AI Ecosystem", zh: "AI 生态" },
+  "page.title": { en: "AI Ecosystem", zh: "AI 生态" },
   "page.subtitle": { en: "100+ AI tools across 12 categories", zh: "100+ AI 工具，跨越 12 个分类" },
   "search.placeholder": { en: "Search AI tools...", zh: "搜索 AI 工具..." },
   "search.noResults": { en: "No tools found", zh: "未找到匹配工具" },
@@ -26,7 +26,7 @@ const t: Translations = {
   "category.AI Music": { en: "AI Music", zh: "AI 音乐" },
   "category.AI Voice / TTS": { en: "AI Voice / TTS", zh: "AI 语音 / TTS" },
   "category.AI Productivity": { en: "AI Productivity", zh: "AI 效率工具" },
-  "footer.text": { en: "AI Alliance · {count}+ tools · Click to visit official sites", zh: "AI 联盟 · {count}+ 个工具 · 点击访问官网" },
+  "footer.text": { en: "AI Ecosystem · {count}+ tools · Click to visit official sites", zh: "AI 生态 · {count}+ 个工具 · 点击访问官网" },
 };
 
 export function useT(lang: Lang) {
