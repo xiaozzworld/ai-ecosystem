@@ -1,21 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/app-shell";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  weight: "400",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "AI Ecosystem — 100+ AI Tools Directory",
-  description: "Discover 100+ best AI tools — chatbots, image generation, video, code assistants, music, voice, and more on AI Ecosystem.",
+  title: {
+    default: "AI Ecosystem — 100+ AI Tools Directory",
+    template: "%s — AI Ecosystem",
+  },
+  description:
+    "Discover 100+ best AI tools across 12 categories — chatbots, image & video generation, code assistants, music, voice, agents, and more. Curated directory updated regularly.",
+  keywords: [
+    "AI tools", "AI directory", "artificial intelligence", "chatbot", "LLM",
+    "image generation", "video generation", "AI code", "AI music", "AI voice",
+  ],
+  openGraph: {
+    title: "AI Ecosystem — 100+ AI Tools Directory",
+    description:
+      "Discover 100+ best AI tools across 12 categories. Curated directory updated regularly.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +43,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${dmSerif.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-neutral-900">
+      <body className="min-h-full flex flex-col">
         <AppShell>{children}</AppShell>
       </body>
     </html>

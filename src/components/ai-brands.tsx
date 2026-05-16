@@ -4,8 +4,9 @@ export interface AiBrand {
   category: string;
   url: string;
   color: string;
-  /** The letter(s) to display inside the brand icon */
   mark: string;
+  /** Affiliate/referral link. Falls back to `url` if not set. */
+  affiliateUrl?: string;
 }
 
 const brands: AiBrand[] = [
@@ -63,7 +64,7 @@ const brands: AiBrand[] = [
   { name: "Ideogram",         maker: "Ideogram",        category: "Image Generation", url: "https://ideogram.ai",          color: "#18181B", mark: "I" },
   { name: "Imagen",           maker: "Google",          category: "Image Generation", url: "https://imagen.research.google", color: "#4285F4", mark: "Im" },
   { name: "Flux",             maker: "Black Forest Labs", category: "Image Generation", url: "https://blackforestlabs.ai",  color: "#18181B", mark: "Fl" },
-  { name: "Canva AI",         maker: "Canva",           category: "Image Generation", url: "https://canva.com",            color: "#00C4CC", mark: "Cv" },
+  { name: "Canva AI",         maker: "Canva",           category: "Image Generation", url: "https://canva.com",            color: "#00C4CC", mark: "Cv", affiliateUrl: "https://canva.com/?ref=aiecosystem" },
   { name: "即梦",              maker: "ByteDance",       category: "Image Generation", url: "https://jimeng.jianying.com",  color: "#EC4899", mark: "即" },
   { name: "SeaArt",           maker: "SeaArt",          category: "Image Generation", url: "https://www.seaart.ai",        color: "#0EA5E9", mark: "S" },
   { name: "Recraft",          maker: "Recraft",         category: "Image Generation", url: "https://www.recraft.ai",       color: "#6366F1", mark: "R" },
@@ -115,29 +116,29 @@ const brands: AiBrand[] = [
   { name: "Boomy",            maker: "Boomy",           category: "AI Music",         url: "https://boomy.com",            color: "#2563EB", mark: "B" },
 
   // ═══ AI Voice ═══
-  { name: "ElevenLabs",       maker: "ElevenLabs",      category: "AI Voice / TTS",   url: "https://elevenlabs.io",        color: "#0D0D0D", mark: "11" },
-  { name: "Speechify",        maker: "Speechify",       category: "AI Voice / TTS",   url: "https://speechify.com",        color: "#2563EB", mark: "Sp" },
-  { name: "Murf",             maker: "Murf AI",         category: "AI Voice / TTS",   url: "https://murf.ai",              color: "#7C3AED", mark: "M" },
+  { name: "ElevenLabs",       maker: "ElevenLabs",      category: "AI Voice / TTS",   url: "https://elevenlabs.io",        color: "#0D0D0D", mark: "11", affiliateUrl: "https://elevenlabs.io/?ref=aiecosystem" },
+  { name: "Speechify",        maker: "Speechify",       category: "AI Voice / TTS",   url: "https://speechify.com",        color: "#2563EB", mark: "Sp", affiliateUrl: "https://speechify.com/?ref=aiecosystem" },
+  { name: "Murf",             maker: "Murf AI",         category: "AI Voice / TTS",   url: "https://murf.ai",              color: "#7C3AED", mark: "M", affiliateUrl: "https://murf.ai/?ref=aiecosystem" },
   { name: "PlayHT",           maker: "PlayHT",          category: "AI Voice / TTS",   url: "https://play.ht",              color: "#18181B", mark: "HT" },
-  { name: "Descript",         maker: "Descript",        category: "AI Voice / TTS",   url: "https://descript.com",         color: "#F97316", mark: "De" },
+  { name: "Descript",         maker: "Descript",        category: "AI Voice / TTS",   url: "https://descript.com",         color: "#F97316", mark: "De", affiliateUrl: "https://descript.com/?ref=aiecosystem" },
   { name: "Fish Audio",       maker: "Fish Audio",      category: "AI Voice / TTS",   url: "https://fish.audio",           color: "#0EA5E9", mark: "F" },
   { name: "Respeecher",       maker: "Respeecher",      category: "AI Voice / TTS",   url: "https://www.respeecher.com",   color: "#DC2626", mark: "Re" },
   { name: "Wellsaid",         maker: "Wellsaid Labs",   category: "AI Voice / TTS",   url: "https://wellsaidlabs.com",     color: "#10B981", mark: "W" },
 
   // ═══ AI Productivity ═══
-  { name: "Notion AI",        maker: "Notion",          category: "AI Productivity",  url: "https://notion.so",            color: "#000000", mark: "N" },
+  { name: "Notion AI",        maker: "Notion",          category: "AI Productivity",  url: "https://notion.so",            color: "#000000", mark: "N", affiliateUrl: "https://notion.so/?via=aiecosystem" },
   { name: "Gamma",            maker: "Gamma",           category: "AI Productivity",  url: "https://gamma.app",            color: "#7C3AED", mark: "G" },
-  { name: "Grammarly",        maker: "Grammarly",       category: "AI Productivity",  url: "https://grammarly.com",        color: "#15C39A", mark: "G" },
-  { name: "Jasper",           maker: "Jasper AI",       category: "AI Productivity",  url: "https://jasper.ai",            color: "#FF6B35", mark: "J" },
-  { name: "Copy.ai",          maker: "Copy.ai",         category: "AI Productivity",  url: "https://copy.ai",              color: "#2563EB", mark: "C" },
-  { name: "Writesonic",       maker: "Writesonic",      category: "AI Productivity",  url: "https://writesonic.com",       color: "#F97316", mark: "W" },
+  { name: "Grammarly",        maker: "Grammarly",       category: "AI Productivity",  url: "https://grammarly.com",        color: "#15C39A", mark: "G", affiliateUrl: "https://grammarly.com/?ref=aiecosystem" },
+  { name: "Jasper",           maker: "Jasper AI",       category: "AI Productivity",  url: "https://jasper.ai",            color: "#FF6B35", mark: "J", affiliateUrl: "https://jasper.ai/?fpr=aiecosystem" },
+  { name: "Copy.ai",          maker: "Copy.ai",         category: "AI Productivity",  url: "https://copy.ai",              color: "#2563EB", mark: "C", affiliateUrl: "https://copy.ai/?via=aiecosystem" },
+  { name: "Writesonic",       maker: "Writesonic",      category: "AI Productivity",  url: "https://writesonic.com",       color: "#F97316", mark: "W", affiliateUrl: "https://writesonic.com/?via=aiecosystem" },
   { name: "Jenni AI",         maker: "Jenni AI",        category: "AI Productivity",  url: "https://jenni.ai",             color: "#EC4899", mark: "J" },
   { name: "Otter.ai",         maker: "Otter.ai",        category: "AI Productivity",  url: "https://otter.ai",             color: "#0EA5E9", mark: "O" },
   { name: "Tome",             maker: "Tome",            category: "AI Productivity",  url: "https://tome.app",             color: "#18181B", mark: "T" },
   { name: "Beautiful.ai",     maker: "Beautiful.ai",    category: "AI Productivity",  url: "https://www.beautiful.ai",     color: "#2563EB", mark: "B" },
   { name: "Slides AI",        maker: "Slides AI",       category: "AI Productivity",  url: "https://slidesai.io",          color: "#6366F1", mark: "S" },
   { name: "Mem",              maker: "Mem.ai",          category: "AI Productivity",  url: "https://mem.ai",               color: "#18181B", mark: "M" },
-  { name: "Taskade",          maker: "Taskade",         category: "AI Productivity",  url: "https://taskade.com",          color: "#F97316", mark: "T" },
+  { name: "Taskade",          maker: "Taskade",         category: "AI Productivity",  url: "https://taskade.com",          color: "#F97316", mark: "T", affiliateUrl: "https://taskade.com/?via=aiecosystem" },
 ];
 
 export { brands };

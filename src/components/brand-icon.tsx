@@ -18,9 +18,12 @@ export function BrandIcon({ url, name, color, mark }: Props) {
     return (
       <div
         className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: `${color}22`, border: `1px solid ${color}33` }}
       >
-        <span className="text-white text-[11px] font-bold leading-none select-none">
+        <span
+          className="text-[11px] font-bold leading-none select-none"
+          style={{ color }}
+        >
           {mark}
         </span>
       </div>
@@ -36,7 +39,7 @@ export function BrandIcon({ url, name, color, mark }: Props) {
       loading="lazy"
       referrerPolicy="no-referrer"
       onError={() => setFailed(true)}
-      className="w-10 h-10 rounded-lg flex-shrink-0 object-contain bg-neutral-50"
+      className="w-10 h-10 rounded-lg flex-shrink-0 object-contain bg-[#1a1a1a]"
     />
   );
 }
