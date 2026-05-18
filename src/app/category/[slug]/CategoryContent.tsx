@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import brands from "@/components/ai-brands";
 import { useLang, useT } from "@/lib/i18n";
 import { BrandIcon } from "@/components/brand-icon";
+import { FeaturedSection, AdvertisePlaceholder } from "@/components/featured-section";
 import type { Category } from "@/lib/categories";
 import { CATEGORY_COLORS } from "@/lib/categories";
 
@@ -16,16 +17,23 @@ export function CategoryContent({ category }: Props) {
   const t = useT(lang);
   const [query, setQuery] = useState("");
 
+  const { featured, regular } = useMemo(() => {
+    const categoryItems = brands.filter((b) => b.category === category);
+    return {
+      featured: categoryItems.filter((b) => b.featured),
+      regular: categoryItems.filter((b) => !b.featured),
+    };
+  }, [category]);
+
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
-    const items = brands.filter((b) => b.category === category);
-    if (!q) return items;
-    return items.filter(
+    if (!q) return regular;
+    return [...featured, ...regular].filter(
       (b) =>
         b.name.toLowerCase().includes(q) ||
         b.maker.toLowerCase().includes(q)
     );
-  }, [query, category]);
+  }, [query, regular, featured]);
 
   const accentColor = CATEGORY_COLORS[category] ?? "#737373";
 
@@ -118,6 +126,19 @@ export function CategoryContent({ category }: Props) {
         </p>
       )}
 
+      {/* Featured section — only when not searching */}
+      {!query.trim() && (
+        <FeaturedSection items={featured}>
+          {featured.length < 3 &&
+            Array.from({ length: Math.min(3 - featured.length, 2) }).map((_, i) => (
+              <div key={`placeholder-${i}`} style={{ animationDelay: `${(featured.length + i) * 40}ms` }}>
+                <AdvertisePlaceholder />
+              </div>
+            ))
+          }
+        </FeaturedSection>
+      )}
+
       {/* Tool grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {filtered.map((brand, idx) => (
@@ -140,8 +161,13 @@ export function CategoryContent({ category }: Props) {
               mark={brand.mark}
             />
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-medium text-neutral-200 truncate leading-tight">
+              <p className="text-sm font-medium text-neutral-200 truncate leading-tight flex items-center gap-1.5">
                 {brand.name}
+                {brand.affiliateUrl && (
+                  <span className="text-[9px] px-1.5 py-px rounded-full bg-[#d4a853] bg-opacity-15 text-[#d4a853] font-medium tracking-wide flex-shrink-0">
+                    Ad
+                  </span>
+                )}
               </p>
               <p className="text-xs text-neutral-500 truncate leading-tight mt-0.5">
                 {brand.maker}

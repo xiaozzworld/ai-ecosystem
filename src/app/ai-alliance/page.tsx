@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import brands from "@/components/ai-brands";
 import { useLang, useT } from "@/lib/i18n";
 import { BrandIcon } from "@/components/brand-icon";
+import { FeaturedSection, AdvertisePlaceholder } from "@/components/featured-section";
 import {
   ORDERED_CATEGORIES,
   CATEGORY_COLORS,
@@ -132,54 +133,81 @@ export default function AiAlliancePage() {
             </svg>
           </a>
 
+          {/* Featured section — only when not searching */}
+          {!query.trim() && (
+            (() => {
+              const catFeatured = items.filter((b) => (b as typeof items[0]).featured);
+              const catRegular = items.filter((b) => !(b as typeof items[0]).featured);
+              if (catFeatured.length === 0) return null;
+              return (
+                <FeaturedSection items={catFeatured}>
+                  {catFeatured.length < 3 &&
+                    Array.from({ length: Math.min(3 - catFeatured.length, 2) }).map((_, i) => (
+                      <div key={`placeholder-${category}-${i}`}>
+                        <AdvertisePlaceholder />
+                      </div>
+                    ))
+                  }
+                </FeaturedSection>
+              );
+            })()
+          )}
+
           {/* Card grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {items.map((brand, idx) => (
-              <a
-                key={brand.name + brand.maker}
-                href={brand.affiliateUrl || brand.url}
-                target="_blank"
-                rel={brand.affiliateUrl ? "sponsored noopener noreferrer" : "noopener noreferrer"}
-                className="glass glass-hover group flex items-center gap-3.5 p-4 rounded-xl
-                           animate-in
-                           hover:-translate-y-0.5
-                           active:scale-[0.98]
-                           transition-all duration-300"
-                style={{ animationDelay: `${catIdx * 60 + idx * 30 + 150}ms` }}
-              >
-                <BrandIcon
-                  url={brand.url}
-                  name={brand.name}
-                  color={brand.color}
-                  mark={brand.mark}
-                />
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-neutral-200 truncate leading-tight">
-                    {brand.name}
-                  </p>
-                  <p className="text-xs text-neutral-500 truncate leading-tight mt-0.5">
-                    {brand.maker}
-                  </p>
-                </div>
-                <svg
-                  className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#d4a853]
-                             flex-shrink-0 opacity-0 group-hover:opacity-100
-                             group-hover:translate-x-0.5
+            {items
+              .filter((b) => query.trim() || !(b as typeof items[0]).featured)
+              .map((brand, idx) => (
+                <a
+                  key={brand.name + brand.maker}
+                  href={brand.affiliateUrl || brand.url}
+                  target="_blank"
+                  rel={brand.affiliateUrl ? "sponsored noopener noreferrer" : "noopener noreferrer"}
+                  className="glass glass-hover group flex items-center gap-3.5 p-4 rounded-xl
+                             animate-in
+                             hover:-translate-y-0.5
+                             active:scale-[0.98]
                              transition-all duration-300"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  aria-hidden="true"
+                  style={{ animationDelay: `${catIdx * 60 + idx * 30 + 150}ms` }}
                 >
-                  <path
-                    d="M4 1h9v9M13 1L1 13"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <BrandIcon
+                    url={brand.url}
+                    name={brand.name}
+                    color={brand.color}
+                    mark={brand.mark}
                   />
-                </svg>
-              </a>
-            ))}
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-neutral-200 truncate leading-tight flex items-center gap-1.5">
+                      {brand.name}
+                      {brand.affiliateUrl && (
+                        <span className="text-[9px] px-1.5 py-px rounded-full bg-[#d4a853] bg-opacity-15 text-[#d4a853] font-medium tracking-wide flex-shrink-0">
+                          Ad
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-xs text-neutral-500 truncate leading-tight mt-0.5">
+                      {brand.maker}
+                    </p>
+                  </div>
+                  <svg
+                    className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#d4a853]
+                               flex-shrink-0 opacity-0 group-hover:opacity-100
+                               group-hover:translate-x-0.5
+                               transition-all duration-300"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 1h9v9M13 1L1 13"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              ))}
           </div>
         </section>
       ))}

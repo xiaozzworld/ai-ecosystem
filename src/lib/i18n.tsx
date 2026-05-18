@@ -77,11 +77,3 @@ export function LangProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function getFaviconUrl(url: string): string {
-  try {
-    const hostname = new URL(url).hostname;
-    return `https://icons.duckduckgo.com/ip3/${hostname}.ico`;
-  } catch {
-    return "";
-  }
-}

@@ -93,6 +93,20 @@ body {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
+/* ── Featured card ── */
+
+.featured-card {
+  background: rgba(212, 168, 83, 0.04);
+  border: 1px solid rgba(212, 168, 83, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.featured-card:hover {
+  background: rgba(212, 168, 83, 0.08);
+  border-color: rgba(212, 168, 83, 0.3);
+  box-shadow: 0 0 24px rgba(212, 168, 83, 0.06);
+}
+
 /* ── Search glow ── */
 
 .search-glow:focus {

@@ -7,6 +7,8 @@ export interface AiBrand {
   mark: string;
   /** Affiliate/referral link. Falls back to `url` if not set. */
   affiliateUrl?: string;
+  /** Sponsor slot — highlighted at top of category with "Sponsored" badge. */
+  featured?: boolean;
 }
 
 const brands: AiBrand[] = [
@@ -82,7 +84,7 @@ const brands: AiBrand[] = [
   { name: "Hedra",            maker: "Hedra",           category: "Video Generation", url: "https://www.hedra.com",        color: "#18181B", mark: "H" },
 
   // ═══ AI Code ═══
-  { name: "Cursor",           maker: "Anysphere",       category: "AI Code Editor",   url: "https://cursor.com",           color: "#0A0A0A", mark: "C" },
+  { name: "Cursor",           maker: "Anysphere",       category: "AI Code Editor",   url: "https://cursor.com",           color: "#0A0A0A", mark: "C", featured: true },
   { name: "GitHub Copilot",   maker: "GitHub",          category: "AI Code Assistant", url: "https://github.com/features/copilot", color: "#24292E", mark: "GH" },
   { name: "Replit",           maker: "Replit",          category: "AI Code Editor",   url: "https://replit.com",           color: "#F26207", mark: "R" },
   { name: "V0",               maker: "Vercel",          category: "AI UI Generator",  url: "https://v0.dev",               color: "#000000", mark: "v0" },
@@ -116,7 +118,7 @@ const brands: AiBrand[] = [
   { name: "Boomy",            maker: "Boomy",           category: "AI Music",         url: "https://boomy.com",            color: "#2563EB", mark: "B" },
 
   // ═══ AI Voice ═══
-  { name: "ElevenLabs",       maker: "ElevenLabs",      category: "AI Voice / TTS",   url: "https://elevenlabs.io",        color: "#0D0D0D", mark: "11", affiliateUrl: "https://elevenlabs.io/?ref=aiecosystem" },
+  { name: "ElevenLabs",       maker: "ElevenLabs",      category: "AI Voice / TTS",   url: "https://elevenlabs.io",        color: "#0D0D0D", mark: "11", affiliateUrl: "https://elevenlabs.io/?ref=aiecosystem", featured: true },
   { name: "Speechify",        maker: "Speechify",       category: "AI Voice / TTS",   url: "https://speechify.com",        color: "#2563EB", mark: "Sp", affiliateUrl: "https://speechify.com/?ref=aiecosystem" },
   { name: "Murf",             maker: "Murf AI",         category: "AI Voice / TTS",   url: "https://murf.ai",              color: "#7C3AED", mark: "M", affiliateUrl: "https://murf.ai/?ref=aiecosystem" },
   { name: "PlayHT",           maker: "PlayHT",          category: "AI Voice / TTS",   url: "https://play.ht",              color: "#18181B", mark: "HT" },
@@ -129,7 +131,7 @@ const brands: AiBrand[] = [
   { name: "Notion AI",        maker: "Notion",          category: "AI Productivity",  url: "https://notion.so",            color: "#000000", mark: "N", affiliateUrl: "https://notion.so/?via=aiecosystem" },
   { name: "Gamma",            maker: "Gamma",           category: "AI Productivity",  url: "https://gamma.app",            color: "#7C3AED", mark: "G" },
   { name: "Grammarly",        maker: "Grammarly",       category: "AI Productivity",  url: "https://grammarly.com",        color: "#15C39A", mark: "G", affiliateUrl: "https://grammarly.com/?ref=aiecosystem" },
-  { name: "Jasper",           maker: "Jasper AI",       category: "AI Productivity",  url: "https://jasper.ai",            color: "#FF6B35", mark: "J", affiliateUrl: "https://jasper.ai/?fpr=aiecosystem" },
+  { name: "Jasper",           maker: "Jasper AI",       category: "AI Productivity",  url: "https://jasper.ai",            color: "#FF6B35", mark: "J", affiliateUrl: "https://jasper.ai/?fpr=aiecosystem", featured: true },
   { name: "Copy.ai",          maker: "Copy.ai",         category: "AI Productivity",  url: "https://copy.ai",              color: "#2563EB", mark: "C", affiliateUrl: "https://copy.ai/?via=aiecosystem" },
   { name: "Writesonic",       maker: "Writesonic",      category: "AI Productivity",  url: "https://writesonic.com",       color: "#F97316", mark: "W", affiliateUrl: "https://writesonic.com/?via=aiecosystem" },
   { name: "Jenni AI",         maker: "Jenni AI",        category: "AI Productivity",  url: "https://jenni.ai",             color: "#EC4899", mark: "J" },

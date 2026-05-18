@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { DM_Serif_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/app-shell";
+import { Analytics } from "@/components/analytics";
+import { AdSense } from "@/components/adsense";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
@@ -33,6 +36,9 @@ export const metadata: Metadata = {
       "Discover 100+ best AI tools across 12 categories. Curated directory updated regularly.",
     type: "website",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -46,6 +52,9 @@ export default function RootLayout({
       className={`${dmSerif.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Analytics />
+        <AdSense />
+        <CookieConsent />
         <AppShell>{children}</AppShell>
       </body>
     </html>
