@@ -8,6 +8,27 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    title: "Best AI Coding Tools in 2026 — 10 Tools Every Developer Should Know",
+    slug: "best-ai-coding-tools-2026",
+    date: "May 2026",
+    excerpt:
+      "The best AI code editors, assistants, and UI generators: Cursor, GitHub Copilot, Windsurf, Replit, Bolt, v0, Lovable, Devin, Cline, and Augment Code — compared.",
+  },
+  {
+    title: "How to Use AI Image Generators — Beginner's Guide",
+    slug: "ai-image-generation-guide",
+    date: "May 2026",
+    excerpt:
+      "Learn how to use Midjourney, DALL·E 3, Stable Diffusion, Firefly, Flux, and more. Prompt writing tips, tool comparisons, and best practices for beginners.",
+  },
+  {
+    title: "DeepSeek vs ChatGPT (2026) — Which AI Chatbot Wins?",
+    slug: "deepseek-vs-chatgpt",
+    date: "May 2026",
+    excerpt:
+      "Head-to-head comparison: coding, reasoning, Chinese language ability, pricing, privacy, and open-source vs closed-source. Find which fits your needs.",
+  },
+  {
     title: "ChatGPT vs Claude vs Gemini (2026) — Which AI Chatbot Is Best?",
     slug: "chatgpt-vs-claude-vs-gemini",
     date: "May 2026",
