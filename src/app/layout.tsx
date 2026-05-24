@@ -1,21 +1,52 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { AppShell } from "@/components/app-shell";
 import { Analytics } from "@/components/analytics";
 import { AdSense } from "@/components/adsense";
 import { CookieConsent } from "@/components/cookie-consent";
 
-const dmSerif = DM_Serif_Display({
+const dmSerif = localFont({
   variable: "--font-dm-serif",
-  weight: "400",
-  subsets: ["latin"],
+  src: [
+    {
+      path: "../../node_modules/@fontsource/dm-serif-display/files/dm-serif-display-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../node_modules/@fontsource/dm-serif-display/files/dm-serif-display-latin-400-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const dmSans = localFont({
   variable: "--font-dm-sans",
-  subsets: ["latin"],
+  src: [
+    {
+      path: "../../node_modules/@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../node_modules/@fontsource/dm-sans/files/dm-sans-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../node_modules/@fontsource/dm-sans/files/dm-sans-latin-600-normal.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../node_modules/@fontsource/dm-sans/files/dm-sans-latin-700-normal.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   display: "swap",
 });
 
