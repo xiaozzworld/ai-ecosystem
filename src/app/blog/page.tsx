@@ -8,6 +8,13 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    title: "Best AI Video Generators in 2026 — Runway vs Pika vs Sora vs Kling vs Dream Machine",
+    slug: "best-ai-video-generators-2026",
+    date: "May 2026",
+    excerpt:
+      "Real-world comparison of the top 5 AI video generators: Runway, Pika, Sora, Kling, and Dream Machine. Pricing, quality, speed, and which one fits your workflow.",
+  },
+  {
     title: "Best AI Coding Tools in 2026 — 10 Tools Every Developer Should Know",
     slug: "best-ai-coding-tools-2026",
     date: "May 2026",
